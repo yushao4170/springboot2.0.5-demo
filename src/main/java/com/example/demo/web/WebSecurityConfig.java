@@ -13,12 +13,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import com.example.demo.service.UserDetailService;
 
 /**
- * @author xmasq_feiyu
+ * @author guoyu.huang
  * @version 1.0.0
  */
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(securedEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
@@ -26,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/manage/login").permitAll().antMatchers("/test", "/test1").authenticated()
+		http.authorizeRequests().antMatchers("/manage/login", "/api/**").permitAll().antMatchers("/**").authenticated()
 				.anyRequest().authenticated().and().formLogin();
 	}
 
