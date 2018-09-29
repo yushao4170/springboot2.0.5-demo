@@ -24,12 +24,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/manage/login", "/api/**").permitAll().antMatchers("/**").authenticated()
-				.anyRequest().authenticated().and().formLogin();
+		http.csrf().ignoringAntMatchers("/city/**").and().authorizeRequests()
+				.antMatchers("/manage/login", "/api/**", "/city/**").permitAll().anyRequest().authenticated().and()
+				.authorizeRequests().antMatchers("/**").authenticated().anyRequest().authenticated().and().formLogin();
 	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+
 		auth.userDetailsService(userDetailsService);
 	}
 

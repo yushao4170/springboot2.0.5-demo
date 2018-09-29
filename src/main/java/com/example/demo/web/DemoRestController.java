@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.vo.DemoVo;
 
 /**
- * @author xmasq_feiyu
+ * @author guoyu.huang
  * @version 1.0.0
  */
 @RestController

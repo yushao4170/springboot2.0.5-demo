@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 /**
- * @author xmasq_feiyu
+ * @author guoyu.huang
  * @version 1.0.0
  */
 @Component
