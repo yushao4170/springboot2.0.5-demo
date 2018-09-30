@@ -30,4 +30,14 @@ public class CityService {
 		city = cityRespository.save(city);
 		return city;
 	}
+
+	@Transactional
+	public int updateNameById(String id, String name) {
+		return cityRespository.updateNameById(name, id);
+	}
+
+	@Transactional
+	public int updateNameByIds(List<String> ids, String name) {
+		return cityRespository.updateNameByIds(name, ids);
+	}
 }

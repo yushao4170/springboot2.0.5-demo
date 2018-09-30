@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,5 +32,15 @@ public class CityRestController {
 	@PostMapping(value = "/save")
 	public City save(@RequestBody City city) {
 		return cityService.save(city);
+	}
+
+	@PutMapping(value = "/update")
+	public int update(@RequestBody City city) {
+		return cityService.updateNameById(city.getId(), city.getName());
+	}
+
+	@PutMapping(value = "/update-more")
+	public int updateMore(@RequestBody List<String> ids) {
+		return cityService.updateNameByIds(ids, "new name");
 	}
 }

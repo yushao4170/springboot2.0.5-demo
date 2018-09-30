@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -28,6 +29,7 @@ public class City implements Serializable {
 	@Id
 	@Column(name = "id", columnDefinition = "char(32) comment '主键'")
 	@GenericGenerator(name = "paymentableGenerator", strategy = "uuid.hex")
+	@GeneratedValue(generator = "paymentableGenerator")
 	private String id;
 
 	@Column(name = "create_time", columnDefinition = "datetime comment '创建时间'")
