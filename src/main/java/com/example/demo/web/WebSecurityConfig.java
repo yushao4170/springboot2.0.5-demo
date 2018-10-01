@@ -25,8 +25,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().ignoringAntMatchers("/city/**").and().authorizeRequests()
-				.antMatchers("/manage/login", "/api/**", "/city/**").permitAll().anyRequest().authenticated().and()
-				.authorizeRequests().antMatchers("/**").authenticated().anyRequest().authenticated().and().formLogin();
+				.antMatchers("/manage/login", "/api/**", "/city/**", "/rest/**").permitAll().anyRequest()
+				.authenticated().and().authorizeRequests().antMatchers("/**").authenticated().anyRequest()
+				.authenticated().and().formLogin();
 	}
 
 	@Override
